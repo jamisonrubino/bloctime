@@ -1,9 +1,18 @@
-var time = 1500;
-
-var minusSecond = function() {
-  time -= 1;
-}
-
-var startTime = function() {
-    $interval(minusSecond, 1000);
-}
+(function() {
+	function config($stateProvider, $locationProvider) {
+   	$locationProvider
+      	.html5Mode({
+         		enabled: true,
+            requireBase: false
+        });
+		$stateProvider
+        .state('landing', {
+            url: '/',
+			   		controller: 'LandingCtrl as landing',
+            templateUrl: '/templates/landing.html'
+       	});
+   	}
+     	angular
+      	.module('blocTime', ['ui.router', 'firebase'])
+      	.config(config);
+})();

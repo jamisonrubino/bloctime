@@ -1,8 +1,8 @@
 {
-  "name": "bloctime",
+  "name": "blocTime",
   "version": "1.0.0",
   "description": "A pomodoro-style work timer app.",
-  "main": "index.js",
+  "main": "landing.js",
   "scripts": {
     "hello": "node hello.js",
     "start": "node server.js"
