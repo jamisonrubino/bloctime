@@ -1,27 +1,60 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
 #time {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
+  margin: auto;
+  width: 100vh;
+  height: 100vh;
   text-align: center;
   font-family: Arial, sans-serif;
   font-weight: bold;
+  color: #666;
+  overflow: auto;
 }
 
 #time h1 {
   font-size: 5em;
+  margin-bottom: 20px;
 }
-a#timer-button {
-  padding: 15px 40px;
-  border-radius: 2px;
-  background: #eee;
-  font-size: 1.5em;
-  color: #444;
-  box-shadow: 0 2px 15px #555;
+
+#start-stop, #work-break {
+  display: block;
+  clear: both;
+  margin-bottom: 40px;
+}
+
+a#start, a#stop {
+  padding: 15px 50px;
+  border-radius: 4px;
+  background: #666;
+  font-size: 2.3em;
+  color: #fff;
+  /*box-shadow: 0 2px 15px #555;*/
   cursor: pointer;
 }
 
-a#timer-button:active {
-  box-shadow: 0 2px 5px #555;
+#work-break a {
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-size: 1.7em;
+  color: #fff;
+  background: #666;
+  /*box-shadow: 0 2px 15px #555;*/
+  cursor: pointer;
+}
+
+#work-break a:last-child {
+    background: #6c7;
+    margin-left: 10px;
+}
+
+a#start:active, a#stop:active {
+  /*box-shadow: 0 2px 5px #555;*/
   transform: translateY(2px);
+}
+
+.hide {
+  display: none;
 }
