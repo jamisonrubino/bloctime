@@ -58,6 +58,10 @@
       }
     };
 
+    Timer.ding = new buzz.sound( "../../assets/sounds/ding.mp3", {
+      preload: true
+    });
+
     return Timer;
   }
 

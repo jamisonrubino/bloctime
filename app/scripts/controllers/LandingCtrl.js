@@ -1,10 +1,16 @@
 (function() {
-  function LandingCtrl(Timer) {
+  function LandingCtrl(Timer, $scope) {
     this.Timer = Timer;
-    console.log(this.Timer.time);
+    var landing = this;
+
+    $scope.$watch('landing.Timer.time', function() {
+        if (landing.Timer.time == 1) {
+            setTimeout(Timer.ding.play(), 1000);
+        }
+    });
   }
 
     angular
         .module('blocTime')
-        .controller('LandingCtrl', ['Timer', LandingCtrl]);
+        .controller('LandingCtrl', ['Timer', '$scope', LandingCtrl]);
 })();
