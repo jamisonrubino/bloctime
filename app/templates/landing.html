@@ -1,10 +1,9 @@
 <div id="time">
-    <script type="text/javascript">console.log(landing.Timer.time);</script>
-    <h1>{{ landing.Timer.time|timecode }}</h1>
+    <h1 id="time-h1" class="work">{{ landing.Timer.time|timecode }}</h1>
     <br>
     <div id="start-stop">
       <a ng-click="landing.Timer.start()" id="start">Start</a>
-      <a ng-click="landing.Timer.stop()" id="stop" class="hide">Stop</a>
+      <a ng-click="landing.Timer.stop()" id="stop" class="hide">Reset</a>
     </div>
     <!-- <div id="work-break">
       <a ng-click="landing.Timer.break()" class="work-break">Break</a>

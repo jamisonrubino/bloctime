@@ -5,7 +5,6 @@ html, body {
 
 #time {
   margin: auto;
-  width: 100vh;
   height: 100vh;
   text-align: center;
   font-family: Arial, sans-serif;
@@ -14,7 +13,7 @@ html, body {
   overflow: auto;
 }
 
-#time h1 {
+#time-h1 {
   font-size: 5em;
   margin-bottom: 10px;
 }

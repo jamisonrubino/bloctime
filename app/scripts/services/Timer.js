@@ -3,17 +3,19 @@
     var Timer = {};
     Timer.startTime = 1500;
     Timer.time = 1500;
+    Timer.completedCycles = 0;      // UPDATE TO QUERY FIREBASE AND RESET EVERY DAY, BY LOCAL TIME AT MIDNIGHT
     var button = $(".timer-button");
 
     Timer.start = function() {
       Timer.started = $interval(function() {
         Timer.time-=1;
         if (Timer.time == 0 && Timer.startTime == 1500) {
+          Timer.completedCycles++;
           Timer.break();
         } else if (Timer.time == 0 && Timer.startTime == 300) {
           Timer.work();
         }
-      }, 1000);
+      }, 10);
       $("#start").addClass("hide");
       $("#stop").removeClass("hide");
       // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
@@ -35,10 +37,15 @@
 
     Timer.break = function() {
       if (Timer.started) {
+        if (Timer.completedCycles%4==0) {
+          Timer.startTime = 1800;
+          Timer.reset();
+        } else {
         Timer.startTime = 300;
         Timer.reset();
+        }
       } else {
-        Timer.time = 300;
+        // Timer.time = 300; ----deprecated: for "break" button
       }
     };
 
@@ -47,7 +54,7 @@
         Timer.startTime = 1500;
         Timer.reset();
       } else {
-        Timer.time = 1500;
+        // Timer.time = 1500; ----deprecated: for "work" button
       }
     };
 
