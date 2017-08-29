@@ -6,7 +6,14 @@
     var button = $(".timer-button");
 
     Timer.start = function() {
-      Timer.started = $interval(function() {Timer.time-=1;}, 1000);
+      Timer.started = $interval(function() {
+        Timer.time-=1;
+        if (Timer.time == 0 && Timer.startTime == 1500) {
+          Timer.break();
+        } else if (Timer.time == 0 && Timer.startTime == 300) {
+          Timer.work();
+        }
+      }, 1000);
       $("#start").addClass("hide");
       $("#stop").removeClass("hide");
       // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
