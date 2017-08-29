@@ -15,7 +15,7 @@
         } else if (Timer.time == 0 && Timer.startTime == 300) {
           Timer.work();
         }
-      }, 10);
+      }, 1000);
       $("#start").addClass("hide");
       $("#stop").removeClass("hide");
       // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
