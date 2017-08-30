@@ -11,10 +11,10 @@
   </div>
 
   <div id="task-wrap">
-    <div class="task" ng-repeat="task in landing.Tasks.all">
+    <div class="task" ng-repeat="task in landing.Tasks.all | orderBy: '-id'">
       <span>{{ task.value }}</span>
       <script type="text/javascript"></script>
     </div>
   </div>
-  
+
 </div>
