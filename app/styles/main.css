@@ -1,13 +1,18 @@
 html, body {
   padding: 0;
   margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#timer-wrap {
+  width: calc(100%-250px);
+  margin: auto;
 }
 
 #time {
   margin: auto;
   height: 100vh;
   text-align: center;
-  font-family: Arial, sans-serif;
   font-weight: bold;
   color: #666;
   overflow: auto;
@@ -56,4 +61,70 @@ a#start:active, a#stop:active {
 
 .hide {
   display: none;
+}
+
+#sidebar {
+  display: inline-block;
+  float: left;
+  width: 250px;
+  background: #dde;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #666;
+  overflow: auto;
+}
+
+#form-wrap {
+  padding: 0 15px;
+}
+
+#sidebar h2 {
+  margin-bottom: 13px;
+}
+
+#textarea-wrap {
+  width: 100%;
+}
+
+#textarea-wrap input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+#add-task a {
+  text-align: right;
+  float:right;
+  padding: 6px 18px;
+  background: #666;
+  color: #dde;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: default;
+}
+
+#task-wrap {
+  margin-top: 15px;
+  overflow: auto;
+  display: block;
+  clear: both;
+}
+
+.task {
+  display: block;
+  clear: both;
+  padding: 8px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.task:nth-child(odd) {
+    background: #666;
+    color: #dde;
+}
+
+.task:first-child {
+    margin-top: 15px;
 }

@@ -1,12 +1,15 @@
-<div id="time">
-    <h1 id="time-h1" class="work">{{ landing.Timer.time|timecode }}</h1>
-    <br>
-    <div id="start-stop">
-      <a ng-click="landing.Timer.start()" id="start">Start</a>
-      <a ng-click="landing.Timer.stop()" id="stop" class="hide">Reset</a>
-    </div>
-    <!-- <div id="work-break">
-      <a ng-click="landing.Timer.break()" class="work-break">Break</a>
-      <a ng-click="landing.Timer.work()" class="work-break">Work</a>
-    </div> -->
+<ng-include src="'/templates/sidebar.html'"></ng-include>
+<div id="timer-wrap">
+  <div id="time">
+      <h1 id="time-h1" class="work">{{ landing.Timer.time|timecode }}</h1>
+      <br>
+      <div id="start-stop">
+        <a ng-click="landing.Timer.start()" id="start">Start</a>
+        <a ng-click="landing.Timer.stop()" id="stop" class="hide">Reset</a>
+      </div>
+      <!-- <div id="work-break">
+        <a ng-click="landing.Timer.break()" class="work-break">Break</a>
+        <a ng-click="landing.Timer.work()" class="work-break">Work</a>
+      </div> -->
+  </div>
 </div>

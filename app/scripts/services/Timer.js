@@ -67,5 +67,5 @@
 
   angular
     .module('blocTime')
-    .factory('Timer', ['$interval', Timer]);
+    .service('Timer', ['$interval', Timer]);
  })();

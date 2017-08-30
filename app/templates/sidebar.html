@@ -1,0 +1,20 @@
+<div id="sidebar">
+
+  <div id="form-wrap">
+    <h2>Task history</h2>
+    <form id="add-task">
+      <div id="textarea-wrap">
+        <input id="new-task-input" placeholder="New todo item" rows="2"><br>
+        <a ng-click="landing.Tasks.Tasks.newTask();" id="submit-task">Submit</a>
+      </div>
+    </form>
+  </div>
+
+  <div id="task-wrap">
+    <div class="task" ng-repeat="task in landing.Tasks.all">
+      <span>{{ task.value }}</span>
+      <script type="text/javascript"></script>
+    </div>
+  </div>
+  
+</div>

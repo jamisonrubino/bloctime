@@ -1,6 +1,7 @@
 (function() {
-  function LandingCtrl(Timer, $scope) {
+  function LandingCtrl(Timer, Tasks, $scope) {
     this.Timer = Timer;
+    this.Tasks = Tasks;
     var landing = this;
 
     $scope.$watch('landing.Timer.time', function() {
@@ -12,5 +13,5 @@
 
     angular
         .module('blocTime')
-        .controller('LandingCtrl', ['Timer', '$scope', LandingCtrl]);
+        .controller('LandingCtrl', ['Timer', 'Tasks', '$scope', LandingCtrl]);
 })();
