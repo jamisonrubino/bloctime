@@ -23,10 +23,10 @@
         }
       }, 1000);
       $("#start").addClass("hide");
-      $("#stop").show();
-      $("#pause").show();
-      $("#interrupted").show();
-      $("#interruptions").show()
+      $("#stop").removeClass("hide");
+      $("#pause").removeClass("hide");
+      $("#interrupted").removeClass("hide");
+      $("#interruptions").removeClass("hide");
       // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
     };
 
