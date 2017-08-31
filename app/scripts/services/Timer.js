@@ -3,6 +3,7 @@
     var Timer = {};
     Timer.Tasks = Tasks;
     Timer.workOrBreak = "work";
+    Timer.interruptions = 0;
     Timer.startTime = 1500;
     Timer.time = 1500;
     Timer.completedCycles = 0;      // UPDATE TO QUERY FIREBASE AND RESET EVERY DAY, BY LOCAL TIME AT MIDNIGHT
@@ -22,7 +23,10 @@
         }
       }, 1000);
       $("#start").addClass("hide");
-      $("#stop").removeClass("hide");
+      $("#stop").show();
+      $("#pause").show();
+      $("#interrupted").show();
+      $("#interruptions").show()
       // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
     };
 
@@ -30,7 +34,18 @@
       $interval.cancel(Timer.started);
       Timer.time = Timer.startTime;
       $("#stop").addClass("hide");
+      if($("#start").html() == "Resume") {
+        $("#start").html("Start");
+      }
       $("#start").removeClass("hide")
+      Timer.interruptions = 0;
+    };
+
+    Timer.pause = function() {
+      $interval.cancel(Timer.started);
+      $("#pause").addClass("hide");
+      $("#start").removeClass("hide")
+      $("#start").html("Resume");
     };
 
     Timer.stop = function() {
@@ -58,7 +73,12 @@
         Timer.workOrBreak = "work";
         Timer.startTime = 1500;
         Timer.reset();
+        Timer.interruptions = 0;
       }
+    };
+
+    Timer.interrupted = function() {
+      Timer.interruptions++;
     };
 
     Timer.ding = new buzz.sound( "../../assets/sounds/ding.mp3", {

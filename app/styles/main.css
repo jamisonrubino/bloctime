@@ -29,7 +29,7 @@ html, body {
   margin-bottom: 40px;
 }
 
-a#start, a#stop {
+a#start, a#stop, a#pause {
   padding: 12px 50px;
   border-radius: 4px;
   background: #666;
@@ -39,20 +39,40 @@ a#start, a#stop {
   cursor: pointer;
 }
 
-#work-break a {
+#current-task-time {
+  margin-bottom: 15px;
+}
+
+#interruptions {
+  margin-bottom: 15px;
+}
+
+a#interrupted {
+  padding: 6px 25px;
+  border-radius: 2px;
+  background: #c86;
+  font-size: 1.5em;
+  color: #fff;
+  /*box-shadow: 0 2px 15px #555;*/
+  cursor: pointer;
+
+}
+
+
+/*#work-break a {
   padding: 10px 25px;
   border-radius: 4px;
   font-size: 1.7em;
   color: #fff;
   background: #666;
-  /*box-shadow: 0 2px 15px #555;*/
+  /*box-shadow: 0 2px 15px #555;*//*
   cursor: pointer;
 }
 
 #work-break a:last-child {
     background: #6c7;
     margin-left: 10px;
-}
+}*/
 
 a#start:active, a#stop:active {
   /*box-shadow: 0 2px 5px #555;*/
@@ -195,8 +215,8 @@ a#start:active, a#stop:active {
   cursor: pointer;
   padding: 0 5px;
   border-radius: 5px;
-  border: 2px solid #c55;
-  color: #c55;
+  border: 2px solid #c86;
+  color: #c86;
   background: #fff;
   margin-left: 10px;
   font-weight: bold;

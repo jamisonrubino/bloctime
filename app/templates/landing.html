@@ -5,10 +5,14 @@
       <br>
       <div id="start-stop">
         <a ng-click="landing.Timer.start()" id="start">Start</a>
+        <a ng-click="landing.Timer.pause()" id="pause" class="hide">Pause</a>
         <a ng-click="landing.Timer.stop()" id="stop" class="hide">Reset</a>
       </div>
       <div id="current-task">
       </div>
-      <span id="current-task-time" class="hide">{{ landing.Tasks.Tasks.currentTask.timeSpent|timecode }}</span>
+      <div id="current-task-time" class="hide">{{ landing.Tasks.Tasks.currentTask.timeSpent|timecode }} - {{ landing.Tasks.Tasks.currentTask.timeSpent/(60*25)|number:1 }} sessions</div>
+
+      <div id="interruptions" class="hide">{{ landing.Timer.interruptions }} interruptions.</div>
+      <a id="interrupted" class="hide" ng-click="landing.Timer.interrupted();">Interrupted</a>
   </div>
 </div>
