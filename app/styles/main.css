@@ -197,7 +197,7 @@ a#start:active, a#stop:active {
   border-radius: 5px;
   border: 2px solid #c55;
   color: #c55;
-  background: #eee;
+  background: #fff;
   margin-left: 10px;
   font-weight: bold;
 }
