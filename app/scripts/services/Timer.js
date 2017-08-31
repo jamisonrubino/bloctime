@@ -1,6 +1,7 @@
 (function() {
-  function Timer($interval) {
+  function Timer($interval, Tasks) {
     var Timer = {};
+    Timer.Tasks = Tasks;
     Timer.startTime = 1500;
     Timer.time = 1500;
     Timer.completedCycles = 0;      // UPDATE TO QUERY FIREBASE AND RESET EVERY DAY, BY LOCAL TIME AT MIDNIGHT
@@ -9,6 +10,7 @@
     Timer.start = function() {
       Timer.started = $interval(function() {
         Timer.time-=1;
+        Timer.Tasks.Tasks.updateTime(Timer.Tasks.Tasks.currentTask);
         if (Timer.time == 0 && Timer.startTime == 1500) {
           Timer.completedCycles++;
           Timer.break();
@@ -67,5 +69,5 @@
 
   angular
     .module('blocTime')
-    .service('Timer', ['$interval', Timer]);
+    .service('Timer', ['$interval', 'Tasks', Timer]);
  })();

@@ -9,6 +9,7 @@
             setTimeout(Timer.ding.play(), 1000);
         }
     });
+
   }
 
     angular

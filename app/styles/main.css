@@ -59,6 +59,15 @@ a#start:active, a#stop:active {
   transform: translateY(2px);
 }
 
+#current-task h4 {
+  margin-bottom: 5px;
+}
+
+#current-task h2 {
+  margin: 5px 0 10px;
+  color: #6c8;
+}
+
 .hide {
   display: none;
 }
@@ -102,8 +111,13 @@ a#start:active, a#stop:active {
   color: #dde;
   font-weight: bold;
   border-radius: 2px;
-  cursor: default;
+  cursor: pointer;
 }
+
+#add-task a:active {
+  transform: translateY(2px);
+}
+
 
 #task-wrap {
   margin-top: 15px;
@@ -115,9 +129,10 @@ a#start:active, a#stop:active {
 .task {
   display: block;
   clear: both;
-  padding: 8px 15px;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 .task:nth-child(odd) {
@@ -127,4 +142,62 @@ a#start:active, a#stop:active {
 
 .task:first-child {
     margin-top: 15px;
+}
+
+.task-name {
+  display: inline-block;
+  float: left;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  width: calc(100% - 55px);
+  overflow: auto;
+  transition: 0.3s margin-left, 0.3s width;
+}
+
+.task-name a {
+  cursor: pointer;
+  transition: 0.3s color;
+}
+
+.task.selected {
+  background: #6c8;
+}
+
+.task.selected .task-name {
+  margin-left: 15px;
+  width: calc(100% - 70px);
+}
+
+.task.selected .task-name a.task-title-link {
+  color: #444;
+}
+
+.delete-div {
+  display: inline-block;
+  float: right;
+  width: 25px;
+  overflow: auto;
+  padding: 8px 15px;
+  height: 100%;
+}
+
+/*.task:nth-child(odd) .delete-div {
+  background: #dde;
+}
+
+.task:nth-child(even) .delete-div {
+  background: #666;
+}*/
+
+.delete {
+  text-align: right;
+  float: right;
+  cursor: pointer;
+  padding: 0 5px;
+  border-radius: 5px;
+  border: 2px solid #c55;
+  color: #c55;
+  background: #eee;
+  margin-left: 10px;
+  font-weight: bold;
 }
