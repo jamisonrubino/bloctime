@@ -2,6 +2,7 @@
   function Timer($interval, Tasks) {
     var Timer = {};
     Timer.Tasks = Tasks;
+    Timer.workOrBreak = "work";
     Timer.startTime = 1500;
     Timer.time = 1500;
     Timer.completedCycles = 0;      // UPDATE TO QUERY FIREBASE AND RESET EVERY DAY, BY LOCAL TIME AT MIDNIGHT
@@ -10,7 +11,9 @@
     Timer.start = function() {
       Timer.started = $interval(function() {
         Timer.time-=1;
-        Timer.Tasks.Tasks.updateTime(Timer.Tasks.Tasks.currentTask);
+        if (Timer.workOrBreak == "work") {
+          Timer.Tasks.Tasks.updateTime(Timer.Tasks.Tasks.currentTask);
+        }
         if (Timer.time == 0 && Timer.startTime == 1500) {
           Timer.completedCycles++;
           Timer.break();
@@ -39,6 +42,7 @@
 
     Timer.break = function() {
       if (Timer.started) {
+        Timer.workOrBreak = "break";
         if (Timer.completedCycles%4==0) {
           Timer.startTime = 1800;
           Timer.reset();
@@ -46,17 +50,14 @@
         Timer.startTime = 300;
         Timer.reset();
         }
-      } else {
-        // Timer.time = 300; ----deprecated: for "break" button
       }
     };
 
     Timer.work = function() {
       if (Timer.started) {
+        Timer.workOrBreak = "work";
         Timer.startTime = 1500;
         Timer.reset();
-      } else {
-        // Timer.time = 1500; ----deprecated: for "work" button
       }
     };
 
