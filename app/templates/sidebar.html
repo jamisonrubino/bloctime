@@ -12,7 +12,7 @@
   <div id="task-wrap">
     <div class="task" ng-repeat="task in landing.Tasks.all | orderBy: '-id'" ng-class="{'selected': task.value == landing.Tasks.Tasks.currentTask.value, '': task.value !== landing.Tasks.Tasks.currentTask.value}">
       <div class="task-name"><a class="task-title-link" ng-click="landing.Tasks.Tasks.setTask(task);">{{ task.value }}</a></div>
-      <div class="delete-div"><a ng-click="landing.Tasks.Tasks.deleteTask(task.value);" class="delete">‒</a></div>
+      <div class="delete-div"><a ng-click="landing.deleteTask(task.value);" class="delete">‒</a></div>
     </div>
   </div>
 </div>

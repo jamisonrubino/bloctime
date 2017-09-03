@@ -88,10 +88,6 @@ a#start:active, a#stop:active {
   color: #6c8;
 }
 
-.hide {
-  display: none;
-}
-
 #sidebar {
   display: inline-block;
   float: left;
@@ -220,4 +216,8 @@ a#start:active, a#stop:active {
   background: #fff;
   margin-left: 10px;
   font-weight: bold;
+}
+
+.hide {
+  display: none;
 }

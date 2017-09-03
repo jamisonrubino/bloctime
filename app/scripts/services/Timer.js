@@ -12,13 +12,15 @@
     Timer.start = function() {
       Timer.started = $interval(function() {
         Timer.time-=1;
-        if (Timer.workOrBreak == "work") {
+        if (Timer.workOrBreak == "work" && Timer.Tasks.Tasks.currentTask) {
           Timer.Tasks.Tasks.updateTime(Timer.Tasks.Tasks.currentTask);
         }
         if (Timer.time == 0 && Timer.startTime == 1500) {
+          Timer.ding.play();
           Timer.completedCycles++;
           Timer.break();
         } else if (Timer.time == 0 && Timer.startTime == 300) {
+          Timer.ding.play();
           Timer.work();
         }
       }, 1000);

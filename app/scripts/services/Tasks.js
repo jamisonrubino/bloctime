@@ -5,8 +5,6 @@
     var t = $firebaseArray(ref.child("Tasks"));
     console.log(t);
 
-    // t.orderByChild('id')
-
     Tasks.newTask = function() {
       var task = $("#new-task-input");
       if (task.val().length > 0) {
@@ -23,18 +21,20 @@
 
     Tasks.deleteTask = function(task) {
       if (confirm('Are you sure you want to delete "' + task + '"?')) {
+        if (Tasks.currentTask.value == task) {
+          Tasks.currentTask = undefined;
+          $("#current-task").addClass("hide");
+          $("#current-task-time").addClass("hide");
+        }
         ref.child("Tasks").child(task).remove();
-        ref.child("numTasks").once("value").then(function(snapshot) {
-            var num = snapshot.child("value").val();
-            ref.child("numTasks").set({ "value": num-1 });
-        });
       }
+
     };
 
     Tasks.setTask = function(task) {
       Tasks.currentTask = task;
       $("#current-task").html("<h4>Current task:</h4><h2>" + Tasks.currentTask.value + "</h2>");
-      $("#current-task-time").show();
+      $("#current-task-time").removeClass("hide");
     };
 
     Tasks.updateTime = function(task) {
