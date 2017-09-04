@@ -23,13 +23,13 @@ html, body {
   margin-bottom: 10px;
 }
 
-#start-stop, #work-break {
+#start-reset, #work-break {
   display: block;
   clear: both;
   margin-bottom: 40px;
 }
 
-a#start, a#stop, a#pause {
+a#start, a#reset, a#pause {
   padding: 12px 50px;
   border-radius: 4px;
   background: #666;
@@ -74,10 +74,10 @@ a#interrupted {
     margin-left: 10px;
 }*/
 
-a#start:active, a#stop:active {
-  /*box-shadow: 0 2px 5px #555;*/
+/*a#start:active, a#reset:active {
+  box-shadow: 0 2px 5px #555;
   transform: translateY(2px);
-}
+}*/
 
 #current-task h4 {
   margin-bottom: 5px;

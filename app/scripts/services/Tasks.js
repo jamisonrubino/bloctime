@@ -31,11 +31,23 @@
 
     };
 
-    Tasks.setTask = function(task) {
-      Tasks.currentTask = task;
-      $("#current-task").html("<h4>Current task:</h4><h2>" + Tasks.currentTask.value + "</h2>");
-      $("#current-task-time").removeClass("hide");
+    Tasks.unsetTask = function() {
+      Tasks.currentTask = undefined;
+      $("#current-task").addClass("hide");
+      $("#current-task-time").addClass("hide");
     };
+
+    Tasks.setTask = function(task) {
+      if (Tasks.currentTask == task) {
+        Tasks.unsetTask();
+      } else {
+        Tasks.currentTask = task;
+        $("#current-task").removeClass("hide");
+        $("#current-task").html("<h4>Current task:</h4><h2>" + Tasks.currentTask.value + "</h2>");
+        $("#current-task-time").removeClass("hide");
+      }
+    };
+
 
     Tasks.updateTime = function(task) {
       ref.child("Tasks").child(task.value).set({ "value": task.value, "id": task.id, "timeSpent": task.timeSpent+1 });

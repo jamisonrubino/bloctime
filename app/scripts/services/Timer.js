@@ -25,21 +25,22 @@
         }
       }, 1000);
       $("#start").addClass("hide");
-      $("#stop").removeClass("hide");
+      $("#reset").removeClass("hide");
       $("#pause").removeClass("hide");
       $("#interrupted").removeClass("hide");
       $("#interruptions").removeClass("hide");
-      // buttonContainer.html("<a ng-click=\"landing.Timer.stop()\" id=\"timer-button\">Stop</a>");
+      // buttonContainer.html("<a ng-click=\"landing.Timer.reset()\" id=\"timer-button\">reset</a>");
     };
 
     Timer.reset = function() {
       $interval.cancel(Timer.started);
       Timer.time = Timer.startTime;
-      $("#stop").addClass("hide");
+      $("#reset").addClass("hide");
       if($("#start").html() == "Resume") {
         $("#start").html("Start");
       }
-      $("#start").removeClass("hide")
+      $("#start").removeClass("hide");
+      $("#pause").addClass("hide");
       Timer.interruptions = 0;
     };
 
@@ -48,13 +49,6 @@
       $("#pause").addClass("hide");
       $("#start").removeClass("hide")
       $("#start").html("Resume");
-    };
-
-    Timer.stop = function() {
-      if (Timer.started) {
-        Timer.reset();
-        // buttonContainer.html("<a ng-click=\"landing.Timer.start()\" id=\"timer-button\">Start</a>");
-      }
     };
 
     Timer.break = function() {
