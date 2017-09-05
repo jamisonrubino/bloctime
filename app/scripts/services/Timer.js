@@ -41,11 +41,14 @@
       }
       $("#start").removeClass("hide");
       $("#pause").addClass("hide");
+      $("#interrupted").addClass("hide");
+      $("#interruptions").addClass("hide");
       Timer.interruptions = 0;
     };
 
     Timer.pause = function() {
       $interval.cancel(Timer.started);
+      delete Timer.started;
       $("#pause").addClass("hide");
       $("#start").removeClass("hide")
       $("#start").html("Resume");

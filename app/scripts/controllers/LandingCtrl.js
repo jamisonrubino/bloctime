@@ -6,6 +6,7 @@
 
     this.deleteTask = function(task) {
       if (landing.Timer.started) {
+        console.log("Timer started; will pause, delete, then restart.");
         landing.Timer.pause();
         landing.Tasks.Tasks.deleteTask(task);
         landing.Timer.start();
